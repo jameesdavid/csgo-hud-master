@@ -1,4 +1,4 @@
-const db = require('./database.js').players;
+const db = require('./database').players;
 
 db.loadDatabase();
 

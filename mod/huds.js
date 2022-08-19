@@ -1,4 +1,4 @@
-const db = require('./database.js').huds;
+const db = require('./database').huds;
 const fs = require('fs');
 const address = require('ip').address();
 
