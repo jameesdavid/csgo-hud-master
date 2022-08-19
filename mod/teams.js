@@ -1,4 +1,4 @@
-const db = require('./database.js').teams;
+const db = require('./database').teams;
 const fs = require('fs');
 
 db.loadDatabase();
