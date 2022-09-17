@@ -14,31 +14,35 @@ html
     section
       #bomb_timer
       #header
-        #match_teams
-          #round_info(style='height: 100%;')
-            #team_1.team_info(style='height: 100%;')
-              #team_score 0
-              #team_logo
-                #team_flag
+        #header_inner
+          .container_name
+            #team_1
+              #team_name Time A
+          #background_header 
+            #team_1.team_info
+              .team_logo
                 img#team_1_logo
-              #team_name UFSCAR Fire
-            #team_2.team_info(style='height: 100%;')
-              #team_score 0
-              #team_logo
-                #team_flag
+              .team_score 0
+            #round_info
+              #time_counter.bomb_timer 1:55
+              #round_counter Round 0
+            #team_2.team_info
+              .team_score 0
+              .team_logo
                 img#team_2_logo
-              #team_name UFSC Titans
-            #time_counter 1:55
-            #round_counter Round 0
-        #match_tournament
-          div(style='margin:auto; width:70%')
-            #match_one_info
-              .block
-              .block
-            #match_two_info
-              .block
-              .block
-            #match_info Melhor de 3
+          .container_name
+            #team_2
+              #team_name Time B
+      #match_tournament
+        div
+          #match_one_info
+            .block
+            .block
+          #match_two_info
+            .block
+            .block
+          #match_neutral
+            .block_neutral
       #defuser
         #defuser_title
           | Desarmando
@@ -105,9 +109,9 @@ html
               #assist_count.inlining 2/
               #death_count.inlining 7
           #third_row
-            img(src='/files/img/sponsors/jubs1.png')
-            img(src='/files/img/sponsors/cbdu1.png')
-            img(src='/files/img/sponsors/bb1.png')
+            img(src='/files/img/sponsors/unirv.png')
+            span CSGO e-SPORTS UniRV
+            img(src='/files/img/sponsors/prae.png')
       #left.team
         .money
           //- img.invert(src='/files/img/elements/team.png', style='max-height: 70%; margin-top:10px; margin-left:10px; float:left;')
@@ -256,11 +260,11 @@ html
       #right.team
         .money
           //- img.invert(src='/files/img/elements/team.png', style='max-height: 70%; margin-top:10px; margin-right:10px; float:right; ')
-          div(style='width:25%; float:right; color: #ffffff; text-align:right;')
+          div(style='width:calc(50% - 5px); float:left; color: #ffffff; margin-left: 5px;')
             .first_title_tm(style='width: 300px;') Time:
             #team_money_2.first_tm(style='font-weight:600') $0
           //- img.invert(src='/files/img/elements/eq.png', style='max-height: 70%; margin-top:10px; margin-right:10px; float:right;')
-          div(style='width:30%; float:right; color: #ffffff; text-align:right')
+          div(style='width:calc(50% - 5px); float:right; color: #ffffff; margin-right: 5px;')
             .first_title_tm(style='width: 300px;') Equipamento:
             #eq_money_2.first_tm(style='font-weight:600') $0
         #player1.player

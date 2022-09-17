@@ -96,8 +96,8 @@ function fillPlayer(player,nr, side, max){
 
     let team = player.team.toLowerCase();
 
-    let health_color = statistics.health <= 20 ? "#ff0000" : team == "ct" ? "rgb(18, 112, 142)":"rgb(249, 196, 0)";
-    let base_color = team == "ct" ? "rgba(18, 112, 142, 0.5)":"rgba(249, 196, 0, 0.5)";
+    let health_color = statistics.health <= 20 ? "#ff0000" : team == "ct" ? "rgb(44, 35, 103)":"rgb(214, 157, 43)";
+    let base_color = team == "ct" ? "rgba(44, 35, 103, 0.5)":"rgba(214, 157, 43, 0.5)";
 
     let $player = $("#"+side).find("#player"+(nr+1));
 
@@ -107,7 +107,7 @@ function fillPlayer(player,nr, side, max){
 
     let gradient = "linear-gradient(to " + side +", " + base_color + (100-statistics.health) + "%, " + health_color + " " + (100-statistics.health) + "%)";
 
-    let background_equip_bar = statistics.health == 0 ? "rgba(80,80,80,0.4)" : team == "ct" ? "rgba(18, 112, 142, 0.5)" : "rgba(249, 196, 0, 0.5)";
+    let background_equip_bar = statistics.health == 0 ? "rgba(80,80,80,0.4)" : team == "ct" ? "rgba(44, 35, 103, 0.5)" : "rgba(214, 157, 43, 0.5)";
 
     let hpbar = statistics.health > 0 ? gradient : "rgba(80,80,80,0.4)";
 
@@ -223,7 +223,7 @@ function updatePage(data) {
         var block = $("<div class='block'></div>");
         var left_bl = $("<div></div>");
         var right_bl = $("<div></div>");
-        for(var x = 0; x < (matchup == "bo5" ? 3 : 2); x ++){
+        for(var x = 0; x < (matchup == "bo5" ? 2 : 1); x ++){
             block.clone().appendTo($(left_bl)).addClass(match.team_1.map_score > x ? "win" : "");
             block.clone().appendTo(right_bl).addClass(match.team_2.map_score > x ? "win" : "");
         }
@@ -231,7 +231,7 @@ function updatePage(data) {
         $("#match_two_info").html(right_bl);
         
         $("#match_tournament").show();
-        $("#match_info").text("Melhor de " + matchup.substr(2));
+        // $("#match_info").text("md" + matchup.substr(2));
     } else {
         $("#match_tournament").hide();
     }
@@ -344,32 +344,32 @@ function updatePage(data) {
     //TEAMS
 
     $("#team_2 #team_name").html(teams.right.name);
-    $("#team_2 #team_score").html(teams.right.score);
+    $("#team_2 .team_score").html(teams.right.score);
     $("#team_1 #team_name").html(teams.left.name);
-    $("#team_1 #team_score").html(teams.left.score);
+    $("#team_1 .team_score").html(teams.left.score);
     if (teams.left.logo || teams.left.flag) {
         if (teams.left.flag) {
-            $("#team_1 #team_logo #team_flag").css("background-image", "url('/files/img/flags/" + teams.left.flag + ".png')");
+            $("#team_1 .team_logo").css("background-image", "url('/files/img/flags/" + teams.left.flag + ".png')");
         }
         if (teams.left.logo) {
             $("#team_1_logo").attr("src", "/teams/"+teams.left.logo);
-            $("#team_1 #team_logo").removeClass("empty");
+            $("#team_1 .team_logo").removeClass("empty");
         }
     } else {
-        $("#team_1 #team_logo #team_flag").css("background-image", "");
-        $("#team_1 #team_logo").addClass("empty");
+        $("#team_1 .team_logo #team_flag").css("background-image", "");
+        $("#team_1 .team_logo").addClass("empty");
     }
     if (teams.right.logo || teams.right.flag) {
         if (teams.right.flag) {
-            $("#team_2 #team_logo #team_flag").css("background-image", "url('/files/img/flags/" + teams.right.flag + ".png')");
+            $("#team_2 .team_logo #team_flag").css("background-image", "url('/files/img/flags/" + teams.right.flag + ".png')");
         }
         if (teams.right.logo) {
             $("#team_2_logo").attr("src", "/teams/"+teams.right.logo);
-            $("#team_2 #team_logo").removeClass("empty");
+            $("#team_2 .team_logo").removeClass("empty");
         }
     } else {
-        $("#team_2 #team_logo").addClass("empty");
-        $("#team_2 #team_logo #team_flag").css("background-image", "");
+        $("#team_2 .team_logo").addClass("empty");
+        $("#team_2 .team_logo #team_flag").css("background-image", "");
     }
 
     //OBSERVED PLAYER
